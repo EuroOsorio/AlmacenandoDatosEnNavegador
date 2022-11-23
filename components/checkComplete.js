@@ -1,7 +1,7 @@
-const checkComplete = () => {
+const checkComplete = (id) => {
   const i = document.createElement('i');
   i.classList.add('far', 'fa-check-square', 'icon');
-  i.addEventListener('click', completeTask);
+  i.addEventListener('click', (event) => completeTask());
   return i;
 };
 // Immediately invoked function expression IIFE
