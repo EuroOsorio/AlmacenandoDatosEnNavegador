@@ -28,7 +28,7 @@ export const addTask = (evento) => {
         value,
         dateFormat, 
         complete,
-        id = uuid.v4()
+        id: uuid.v4()
     };
 
     list.innerHTML = "";
@@ -48,9 +48,17 @@ export const addTask = (evento) => {
             task.classList.add('card');
     //backticks
     const taskContent = document.createElement('div');
+
+    console.log(complete);
+
+    const check = checkComplete(id);
+
     if (complete) {
         console.log('completada');
-    }
+        check.classList.toggle('fas');
+        check.classList.toggle('completeIcon');
+        check.classList.toggle('far');
+    };
 
     const titleTask = document.createElement('span');
             titleTask.classList.add('task');
@@ -62,6 +70,6 @@ export const addTask = (evento) => {
             dateElement.innerHTML = dateFormat;
             task.appendChild(taskContent);
             task.appendChild(dateElement);
-            task.appendChild(deleteIcon());
+            task.appendChild(deleteIcon(id));
     return task;
   };
